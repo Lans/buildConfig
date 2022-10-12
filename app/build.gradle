@@ -1,0 +1,43 @@
+import com.lans.buildplugin.*
+
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+    id 'com.lans.buildplugin'
+}
+
+android {
+    namespace 'com.lans.myplugin'
+    compileSdk BuildManager.compileSdkVersion
+
+    defaultConfig {
+        applicationId BuildManager.applicationId
+        minSdk BuildManager.minSdkVersion
+        targetSdk BuildManager.targetSdkVersion
+        versionCode BuildManager.versionCode
+        versionName BuildManager.versionName
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+}
+
+dependencies {
+    implementation DepManager.core
+    implementation DepManager.appcompat
+    implementation DepManager.material
+    implementation DepManager.constraintlayout
+}
