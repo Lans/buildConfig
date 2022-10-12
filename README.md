@@ -192,5 +192,7 @@ dependencies {
 ## 总结
 
 1.使用groovy ext的方式，无法跟踪依赖关系，可读性差，不便维护
+
 2.使用Kotlin + BuildSrc，支持双向跟踪，依赖更新时会重新构建整个项目
+
 3.使用Composing builds，支持单向跟踪，依赖更新时不会构建整个项目
